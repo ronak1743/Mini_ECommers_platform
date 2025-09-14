@@ -1,1 +1,86 @@
-# Mini_ECommers_platform
+# 🛒 Mini E-Commerce Platform
+
+A simple **E-Commerce Web Application** built using **JSP, Servlets, Java, and MySQL**.
+This project demonstrates the fundamentals of web application development in Java, including user authentication, session management, and database integration.
+
+---
+
+## ✨ Features
+
+* 🔐 **User Authentication**
+
+    * Signup / Login / Logout
+* 🛍️ **Shopping Cart**
+
+    * Add items to cart
+    * View cart
+    * Remove items
+* 📦 **Order Management**
+
+    * Place orders
+    * View ordered items
+    * Delete/cancel orders
+* 🗄️ **Database Integration**
+
+    * MySQL used for persisting user data, cart items, and orders
+
+---
+
+## 🛠️ Tech Stack
+
+* **Frontend:** JSP, HTML, CSS
+* **Backend:** Java Servlets
+* **Database:** MySQL
+* **Build Tool:** Maven
+* **Server:** Apache Tomcat
+
+---
+
+
+
+## ⚙️ Setup Instructions
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/your-username/Mini_Ecommers_platform.git
+cd Mini_Ecommers_platform
+```
+
+### 2. Configure MySQL
+
+```sql
+CREATE DATABASE LetsOrder;
+
+USE LetsOrder;
+
+CREATE TABLE users (
+    username VARCHAR(50) PRIMARY KEY,
+    password VARCHAR(100) NOT NULL
+);
+
+-- Additional tables for cart and orders
+```
+
+Update your DB credentials in `Connecter.java` (this file is ignored in Git for security reasons).
+
+### 3. Build & Run
+
+* Open in **IntelliJ IDEA** (or Eclipse/VS Code with Maven support).
+* Install dependencies via Maven.
+* Deploy on **Apache Tomcat** server.
+* Open `http://localhost:8080/Mini_Ecommers_platform`.
+
+---
+
+
+
+## 🤝 Contributing
+
+Feel free to fork this repo, raise issues, and submit pull requests.
+
+---
+
+## 📜 License
+
+This project is for learning purposes. You can use and modify it freely.
