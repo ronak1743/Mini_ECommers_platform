@@ -96,13 +96,14 @@
         .check{
             position:absolute;
             left:26%;
-            top:370px;
             color:gray;
             cursor: pointer;
+            top:370px;
         }
         .check>label{
             cursor: pointer;
         }
+
         .already{
             position:absolute;
             left:65%;
@@ -125,7 +126,7 @@
     <div class="login">
 
         <div class="loginImg">
-            <h1>Sign In</h1>
+            <h1>Sign Up</h1>
         </div>
 
         <div class="loginForm">
@@ -143,8 +144,9 @@
                     <input type="checkbox" id="rememberme" name="rememberme"/>
                     <label for="rememberme">Remember me</label>
                 </div>
+
                 <div class="already">
-                    <a href="http://localhost:9090/Mini_E-commers_Platform/signup.jsp">Create new account</a>
+                    <a href="http://localhost:9090/Mini_E-commers_Platform/login.jsp">Have account</a>
                 </div>
 
                 <button type="submit"><b>LOGIN</b></button>
