@@ -1,3 +1,13 @@
+<%
+    HttpSession hs=(HttpSession)request.getSession();
+    String user=(String)hs.getAttribute("user");
+    if(user==null){
+        response.sendRedirect(request.getContextPath()+"/login.jsp");
+        return;
+    }
+
+%>
+
 <html>
 <head>
 <title>Let's order </title>

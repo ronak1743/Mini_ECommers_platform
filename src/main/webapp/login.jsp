@@ -129,14 +129,14 @@
         </div>
 
         <div class="loginForm">
-            <form>
+            <form action="login" Method="post">
                 <div class="lables">
                     <h3>Username</h3>
                     <input type="text" name="name" class="lineinp" placeholder="Enter username"/>
                 </div>
                 <div class="lables">
                     <h3>Password</h3>
-                    <input type="password" name="name" class="lineinp" placeholder="Enter Password"/>
+                    <input type="password" name="pass" class="lineinp" placeholder="Enter Password"/>
                 </div>
 
                 <div class="check">
