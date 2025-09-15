@@ -43,7 +43,7 @@ This project demonstrates the fundamentals of web application development in Jav
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/your-username/Mini_Ecommers_platform.git
+git clone https://github.com/ronak1743/Mini_Ecommers_platform.git
 cd Mini_Ecommers_platform
 ```
 
@@ -59,7 +59,15 @@ CREATE TABLE users (
     password VARCHAR(100) NOT NULL
 );
 
--- Additional tables for cart and orders
+CREATE TABLE items (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(100) NOT NULL,
+  description VARCHAR(255),
+  price DECIMAL(10,2) NOT NULL,
+  image_url VARCHAR(255) NOT NULL
+);
+
+-- add your data to tables
 ```
 
 Update your DB credentials in `com.ronak.model.Connecter.java` (this file is ignored in Git for security reasons).
