@@ -36,4 +36,4 @@ build/
 
 ### Mac OS ###
 .DS_Store
-src/main/java/Database.java
+src/main/java/com/ronak/model/Database.java
