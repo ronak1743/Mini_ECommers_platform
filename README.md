@@ -20,7 +20,7 @@ This project demonstrates the fundamentals of web application development in Jav
     * Place orders
     * View ordered items
     * Delete/cancel orders
-* 🗄️ **Database Integration**
+* 🗄️ **com.ronak.model.Database Integration**
 
     * MySQL used for persisting user data, cart items, and orders
 
@@ -30,7 +30,7 @@ This project demonstrates the fundamentals of web application development in Jav
 
 * **Frontend:** JSP, HTML, CSS
 * **Backend:** Java Servlets
-* **Database:** MySQL
+* **com.ronak.model.Database:** MySQL
 * **Build Tool:** Maven
 * **Server:** Apache Tomcat
 
@@ -62,7 +62,7 @@ CREATE TABLE users (
 -- Additional tables for cart and orders
 ```
 
-Update your DB credentials in `Connecter.java` (this file is ignored in Git for security reasons).
+Update your DB credentials in `com.ronak.model.Connecter.java` (this file is ignored in Git for security reasons).
 
 ### 3. Build & Run
 

@@ -1,6 +1,8 @@
 <html>
 <head>
     <title>Let's order</title>
+     <%@ include file="/includes/header.jsp" %>
+
     <style>
         body {
             margin: 0;
@@ -10,7 +12,7 @@
             align-items: center;
             min-height: 100vh;
             padding: 15px;
-            background: orange;
+           background: #d4d4d491;
         }
 
         .login {
@@ -116,12 +118,23 @@
             color:gray;
             text-decoration:none;
         }
+        .error-msg {
+            color: #dc3545; /* bootstrap red */
+            font-size: 14px;
+            font-weight: 500;
+            text-align: center;
+            margin: 10px 0;
+            padding: 8px 12px;
+            background: #ffe6e6;
+            border: 1px solid #dc3545;
+            border-radius: 6px;
+            display: inline-block;
+        }
 
     </style>
 </head>
 <body>
 
-    <%@ include file="/includes/header.jsp" %>
 
     <div class="login">
 
@@ -147,6 +160,21 @@
 
                 <div class="already">
                     <a href="http://localhost:9090/Mini_E-commers_Platform/login.jsp">Have account</a>
+                </div>
+                <div>
+                    <%
+                        HttpSession hs = request.getSession();
+                        Boolean msg = (Boolean) hs.getAttribute("taken");
+
+                        if (Boolean.TRUE.equals(msg)) {
+                            hs.setAttribute("taken",false);
+                    %>
+                        <script>
+                                alert("Username is already taken!");
+                        </script>
+                    <%
+                        }
+                    %>
                 </div>
 
                 <button type="submit"><b>LOGIN</b></button>

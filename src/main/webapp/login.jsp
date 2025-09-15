@@ -1,6 +1,7 @@
 <html>
 <head>
     <title>Let's order</title>
+     <%@ include file="/includes/header.jsp" %>
     <style>
         body {
             margin: 0;
@@ -10,7 +11,7 @@
             align-items: center;
             min-height: 100vh;
             padding: 15px;
-            background: orange;
+            background: #d4d4d491;
         }
 
         .login {
@@ -115,12 +116,11 @@
             color:gray;
             text-decoration:none;
         }
-
     </style>
 </head>
 <body>
 
-    <%@ include file="/includes/header.jsp" %>
+
 
     <div class="login">
 

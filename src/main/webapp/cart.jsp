@@ -2,7 +2,7 @@
 <head>
 <title>Let's order </title>
 <%@ include file="/includes/header.jsp" %>
-</head
+</head>
 <body class="container">
 
 <h2>Hello World!</h2>
