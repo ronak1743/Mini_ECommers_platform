@@ -6,7 +6,6 @@
 <%@ page import="java.io.IOException" %>
 
 <%
-    // Session validation: Check if a user is logged in
     HttpSession hs = request.getSession();
     String user = (String) hs.getAttribute("user");
     if (user == null) {
@@ -90,7 +89,12 @@
                 <h3><%= i.getName() %></h3>
                 <p><%= i.getDiscription() %></p>
                 <b> <%= i.getPrice() %> Rs.</b>
-                <a href="buy.jsp?id=<%=i.getId()%>" class="buy-btn">Buy Now</a>
+                <form action="placeorder" method="get">
+                 <input type="hidden" name="id" value="<%= i.getId() %>"/>
+                 <label for="qty_<%= i.getId() %>">Quantity:</label>
+                 <input type="number" id="qty_<%= i.getId() %>" name="count" value="1" min="1" required/>
+                 <button type="submit" class="buy-btn">Buy Now</button>
+                </form>
             </div>
         </div>
     <% } %>

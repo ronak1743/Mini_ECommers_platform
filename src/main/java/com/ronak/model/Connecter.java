@@ -108,4 +108,67 @@ public class Connecter {
         }
         return list;
     }
+
+    public void addItem(int itemid, int count, String username) {
+        String sql = "INSERT INTO Orders (username, itemid, quantity) VALUES (?, ?, ?);";
+        try {
+            Connection c = DriverManager.getConnection(url, this.user, this.pass);
+            PreparedStatement ps = c.prepareStatement(sql);
+
+            ps.setString(1, username);
+            ps.setInt(2, itemid);
+            ps.setInt(3, count);
+
+
+
+            ps.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public ArrayList<Order> getOrders(String user){
+        ArrayList<Order> list = new ArrayList<>();
+        String sql = "SELECT * FROM Orders WHERE username = ?;";
+        String sql2 = "SELECT * FROM Items WHERE id = ?;";
+
+        try (Connection c = DriverManager.getConnection(url, this.user, this.pass);
+             PreparedStatement psItem = c.prepareStatement(sql2);
+             PreparedStatement psOrder = c.prepareStatement(sql)) {
+
+            psOrder.setString(1, user); // safely bind username
+            ResultSet rs = psOrder.executeQuery();
+
+            while (rs.next()) {
+                int itemId = rs.getInt("itemid");
+
+                // get item info
+                psItem.setInt(1, itemId);
+                ResultSet rsItem = psItem.executeQuery();
+                int price = 0;
+                String itemName = "";
+                if (rsItem.next()) {
+                    price = rsItem.getInt("price");
+                    itemName = rsItem.getString("name");
+                }
+
+                Order o = new Order();
+                o.setOid(rs.getInt("oid"));
+                o.setUser(user);
+                o.setItemid(itemId);
+                o.setItemname(itemName);
+                o.setQuantity(rs.getInt("quantity"));
+                o.setPrice(price);
+                o.setAmount(price * rs.getInt("quantity"));
+
+                list.add(o);
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return list;
+    }
+
 }
