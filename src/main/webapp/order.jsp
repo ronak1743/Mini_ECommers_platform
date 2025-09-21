@@ -12,11 +12,17 @@
 </head>
 
 <style>
+
+        body{
+            display:flex;
+
+            justify-content:center;
+        }
         .product{
             border-radius: 10px;
-            margin: 5px;
+            margin: 15px;
             padding: 10px;
-            width: 100%;
+
             height: 90px;
             background-color: white;
             display: flex;
@@ -37,7 +43,16 @@
             font-size: 20px;
             width: 20%;
             font-weight: bold;
+            align-items:center;
         }
+        form{
+            position:relative;
+            top:10px;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+        }
+
         button{
 
             border-radius: 10px;
@@ -51,30 +66,37 @@
             font-size: 20px;
             font-weight: bold;
         }
-
+        #box{
+            width:100%;
+            width: 96%;
+            margin-top:50px;
+            flex-wrap:wrap;
+        }
 
     </style>
 
-<body class="container">
+<body>
 
+<div id="box">
 <%
     for (Order o : list) {
 %>
 <div class="product">
-        <span class="prod" id="name"><%= o.getItemname() %></span>
-        <span class="prod" id="price"><%= o.getPrice() %></span>
-        <span class="prod" id="quant"><%= o.getQuantity() %></span>
-        <span class="prod" id="ammount"><%= o.getPrice() %></span>
-        <span class="prod" id="del">
-            <form action="delet" method="get">
-                <input type="hidden" name="id" value="id">
-                <button type="submit">Delet</button>
+        <div class="prod" id="name"><%= o.getItemname() %></div>
+        <div class="prod" id="price"><%= o.getPrice() %></div>
+        <div class="prod" id="quant"><%= o.getQuantity() %></div>
+        <div class="prod" id="ammount"><%= o.getAmount() %></div>
+        <div class="prod" id="del">
+            <form action="delete" method="get">
+                <input type="hidden" name="id" value="<%=o.getOid()%>">
+                <button type="submit" >Delete</button>
             </form>
-        </span>
+        </div>
 
     </div>
 
 <% } %>
+</div>
 
 <%@ include file="/includes/footer.jsp" %>
 </body>

@@ -171,4 +171,17 @@ public class Connecter {
         return list;
     }
 
+
+    public void deleteOrder(int id){
+        String sql="delete from orders where oid="+id+";";
+        try {
+            Connection c=DriverManager.getConnection(url,user,pass);
+            Statement s=c.createStatement();
+            s.executeUpdate(sql);
+
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+    }
 }
