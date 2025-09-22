@@ -15,14 +15,12 @@
 
         body{
             display:flex;
-
             justify-content:center;
         }
         .product{
             border-radius: 10px;
             margin: 15px;
             padding: 10px;
-
             height: 90px;
             background-color: white;
             display: flex;
@@ -69,14 +67,14 @@
         #box{
             width:100%;
             width: 96%;
-            margin-top:50px;
+            margin-top:100px;
             flex-wrap:wrap;
         }
 
     </style>
 
 <body>
-
+<%@ include file="/includes/navbar.jsp" %>
 <div id="box">
 <%
     for (Order o : list) {
@@ -92,9 +90,7 @@
                 <button type="submit" >Delete</button>
             </form>
         </div>
-
     </div>
-
 <% } %>
 </div>
 

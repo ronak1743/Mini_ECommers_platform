@@ -118,10 +118,10 @@
         }
     </style>
 </head>
-<body>
+<body style="margin-top:-15px">
 
 
-
+<%@ include file="/includes/navbar.jsp" %>
     <div class="login">
 
         <div class="loginImg">

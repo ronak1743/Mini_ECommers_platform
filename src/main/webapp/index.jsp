@@ -24,6 +24,7 @@
     <%@ include file="/includes/header.jsp" %>
     <style>
         .itemlist{
+            margin-top:90px;
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
             gap: 20px;
@@ -38,7 +39,7 @@
             transition: transform 0.2s ease-in-out;
         }
         .item:hover {
-                    transform: scale(1.05);
+            transform: scale(1.05);
         }
         .item img {
             width: 100%;
@@ -77,10 +78,10 @@
         }
     </style>
 </head>
-<body style="padding-top:25px;">
+<body style="margin-top:-15px">
 
-<div><h1 style="position: fixed; top: 0; z-index: 1000; background: white; width: 100%; display: flex; justify-content: center; align-items: center; padding: 10px 20px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);"><b>Available Products</b></h1></div>
-<hr>
+<%@ include file="/includes/navbar.jsp" %>
+
 <div class="itemlist">
     <% for (Item i : list) { %>
         <div class="item">

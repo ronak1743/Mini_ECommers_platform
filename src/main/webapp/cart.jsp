@@ -3,11 +3,8 @@
 <title>Let's order </title>
 <%@ include file="/includes/header.jsp" %>
 </head>
-<body class="container">
-
-<h2>Hello World!</h2>
-
-
+<body style="margin-top:-15px">
+<%@ include file="/includes/navbar.jsp" %>
 
 <%@ include file="/includes/footer.jsp" %>
 </body>

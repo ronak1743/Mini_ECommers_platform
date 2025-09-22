@@ -135,7 +135,7 @@
 </head>
 <body>
 
-
+<%@ include file="/includes/navbar.jsp" %>
     <div class="login">
 
         <div class="loginImg">
