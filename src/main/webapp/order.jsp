@@ -8,7 +8,7 @@
 <html>
 <head>
 <title>Let's order </title>
-<%@ include file="/includes/header.jsp" %>
+<%@ include file="includes/header.jsp" %>
 </head>
 
 <style>
@@ -74,7 +74,7 @@
     </style>
 
 <body>
-<%@ include file="/includes/navbar.jsp" %>
+<%@ include file="includes/navbar.jsp" %>
 <div id="box">
 <%
     for (Order o : list) {
@@ -94,6 +94,6 @@
 <% } %>
 </div>
 
-<%@ include file="/includes/footer.jsp" %>
+<%@ include file="includes/footer.jsp" %>
 </body>
 </html>

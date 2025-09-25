@@ -80,7 +80,7 @@
 </head>
 <body style="margin-top:-15px">
 
-<%@ include file="/includes/navbar.jsp" %>
+<%@ include file="includes/navbar.jsp" %>
 
 <div class="itemlist">
     <% for (Item i : list) { %>
@@ -101,6 +101,6 @@
     <% } %>
 </div>
 
-<%@ include file="/includes/footer.jsp" %>
+<%@ include file="includes/footer.jsp" %>
 </body>
 </html>
