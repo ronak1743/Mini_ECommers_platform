@@ -10,7 +10,7 @@ public class Connecter {
     final private String pass=db.getPass();
     public Connecter() {
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver"); // Load MySQL driver
+            Class.forName("com.mysql.cj.jdbc.Driver");
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
@@ -183,5 +183,57 @@ public class Connecter {
         catch (Exception e){
             e.printStackTrace();
         }
+    }
+
+    public void addtoCart(int itemid, int count, String username) {
+        String sql = "INSERT INTO cart (username, itemid, quantity) VALUES (?, ?, ?);";
+        try {
+            Connection c = DriverManager.getConnection(url, this.user, this.pass);
+            PreparedStatement ps = c.prepareStatement(sql);
+            ps.setString(1, username);
+            ps.setInt(2, itemid);
+            ps.setInt(3, count);
+            ps.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public ArrayList<Carditem> showCart(String username) {
+        String sql = "select * from cart where username = ?;";
+        String sql2 = "select * from items where id = ?;";
+
+        ArrayList<Carditem> list = new ArrayList<>();
+        try (Connection c = DriverManager.getConnection(url, this.user, this.pass);
+             PreparedStatement psItem = c.prepareStatement(sql2);
+             PreparedStatement psOrder = c.prepareStatement(sql)) {
+
+            psOrder.setString(1, username);
+            ResultSet rs = psOrder.executeQuery();
+
+            while (rs.next()) {
+                psItem.setInt(1, rs.getInt("itemid"));
+                ResultSet rsItem = psItem.executeQuery();
+                rsItem.next();
+                String name=rsItem.getString("name");
+
+                int itemId = rs.getInt("itemid");
+                psItem.setInt(1, itemId);
+                Carditem ci = new Carditem();
+                ci.setOid(rs.getInt("id"));
+                ci.setUser(user);
+                ci.setItemid(itemId);
+                ci.setQuantity(rs.getInt("quantity"));
+                ci.setItemname(name);
+
+                list.add(ci);
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return list;
+
     }
 }

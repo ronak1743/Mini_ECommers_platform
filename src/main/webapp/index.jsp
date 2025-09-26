@@ -1,4 +1,3 @@
-<%-- Import the necessary Java classes --%>
 <%@ page import="com.ronak.model.Connecter" %>
 <%@ page import="com.ronak.model.Item" %>
 <%@ page import="java.util.ArrayList" %>
@@ -21,7 +20,7 @@
 <html>
 <head>
     <title>Let's order</title>
-    <%@ include file="/includes/header.jsp" %>
+    <%@ include file="includes/header.jsp" %>
     <style>
         .itemlist{
             margin-top:90px;
@@ -77,6 +76,7 @@
             background: #0056b3;
         }
     </style>
+
 </head>
 <body style="margin-top:-15px">
 
@@ -90,12 +90,14 @@
                 <h3><%= i.getName() %></h3>
                 <p><%= i.getDiscription() %></p>
                 <b> <%= i.getPrice() %> Rs.</b>
-                <form action="placeorder" method="get">
-                 <input type="hidden" name="id" value="<%= i.getId() %>"/>
-                 <label for="qty_<%= i.getId() %>">Quantity:</label>
-                 <input type="number" id="qty_<%= i.getId() %>" name="count" value="1" min="1" required/>
-                 <button type="submit" class="buy-btn">Buy Now</button>
+                <form id="myForm" method="get">
+                    <input type="hidden" name="id" value="<%= i.getId() %>"/>
+                    <label for="qty_<%= i.getId() %>">Quantity:</label>
+                    <input type="number" id="qty_<%= i.getId() %>" name="count" value="1" min="1" required/>
+                    <button type="submit" formaction="placeorder" class="buy-btn">Buy Now</button>
+                    <button type="submit" formaction="addtocart" class="buy-btn">Add to cart</button>
                 </form>
+
             </div>
         </div>
     <% } %>
@@ -103,4 +105,4 @@
 
 <%@ include file="includes/footer.jsp" %>
 </body>
-</html>
+        </html>

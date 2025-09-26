@@ -45,7 +45,7 @@
     <div class="navigation">
         <h2 class="navitem"><a class="navlink" href="<%=path%>/"><b>Home</b></a></h2>
         <h2 class="navitem"><a class="navlink" href="<%=path%>/show"><b>Orders</b></a></h2>
-        <h2 class="navitem"><a class="navlink" href="<%=path%>/cart.jsp"><b>Carts</b></a></h2>
+        <h2 class="navitem"><a class="navlink" href="<%=path%>/showcart"><b>Carts</b></a></h2>
         <h2 class="navitem"><a class="navlink" href="<%=path%>/logout"><b>Log out</b></a></h2>
     </div>
 </div>
