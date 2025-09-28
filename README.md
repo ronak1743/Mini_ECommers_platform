@@ -67,6 +67,21 @@ CREATE TABLE items (
   image_url VARCHAR(255) NOT NULL
 );
 
+CREATE TABLE orders(
+    oid INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(50),
+    itemid INT,
+    quantity INT,
+);
+ 
+CREATE TABLE cart(
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(50),
+    itemid INT,
+    quantity INT,
+);
+
+
 -- add your data to tables
 ```
 
