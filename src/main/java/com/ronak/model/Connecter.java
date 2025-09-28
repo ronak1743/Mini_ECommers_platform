@@ -236,4 +236,39 @@ public class Connecter {
         return list;
 
     }
+
+    public void deleteFromCart(int idx) {
+        String sql="delete from cart where id="+idx+";";
+        try {
+            Connection c=DriverManager.getConnection(url,user,pass);
+            Statement s=c.createStatement();
+            s.executeUpdate(sql);
+
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    public void CartToOrder(int idx,String username) {
+        String sql="select * from cart where id="+idx+";";
+        String sql2 = "INSERT INTO Orders (username, itemid, quantity) VALUES (?, ?, ?);";
+        try {
+            Connection c=DriverManager.getConnection(url,user,pass);
+            Statement s=c.createStatement();
+            ResultSet rs=s.executeQuery(sql);
+            while (rs.next()) {
+                int itemid = rs.getInt("itemid");
+                int quantity = rs.getInt("quantity");
+                PreparedStatement ps = c.prepareStatement(sql2);
+                ps.setString(1, username);
+                ps.setInt(2, itemid);
+                ps.setInt(3, quantity);
+                ps.executeUpdate();
+            }
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+    }
 }

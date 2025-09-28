@@ -40,7 +40,7 @@
         <div class="prod cart" id="name"><%= o.getItemname() %></div>
         <div class="prod cart" id="quant"><%= o.getQuantity() %></div>
         <div class="prod cart" id="del">
-            <form method="get" class="cart">
+            <form method="post" class="cart">
                 <input type="hidden" name="id" value="<%=o.getOid()%>">
                 <button id="del_btn" type="submit" formaction="deletecart">Delete</button>
                 <button type="submit" formaction="addtoorder">Order</button>
