@@ -2,6 +2,9 @@
 <%@ page import="java.util.ArrayList" %>
 
 <%
+    if(request.getSession().getAttribute("user")==null) {
+        response.sendRedirect(request.getContextPath() + "/login.jsp");
+    }
     ArrayList<Order> list = (ArrayList<Order>) request.getAttribute("orders");
 %>
 

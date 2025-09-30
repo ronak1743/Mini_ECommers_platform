@@ -3,6 +3,9 @@
 <%@ page import="com.ronak.model.Carditem" %>
 
 <%
+    if(request.getSession().getAttribute("user")==null) {
+        response.sendRedirect(request.getContextPath() + "/login.jsp");
+    }
     ArrayList<Carditem> list = (ArrayList<Carditem>) request.getAttribute("cartlist");
 %>
 
