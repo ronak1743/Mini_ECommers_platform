@@ -30,7 +30,7 @@ This project demonstrates the fundamentals of web application development in Jav
 
 * **Frontend:** JSP, HTML, CSS
 * **Backend:** Java Servlets
-* **com.ronak.model.Database:** MySQL
+* **Database:** MySQL
 * **Build Tool:** Maven
 * **Server:** Apache Tomcat
 
@@ -82,10 +82,13 @@ CREATE TABLE cart(
 );
 
 
--- add your data to tables
 ```
 
 Update your DB credentials in `com.ronak.model.Connecter.java` (this file is ignored in Git for security reasons).
+
+Or
+
+Initialise .env file with your Database credential.
 
 ### 3. Build & Run
 
