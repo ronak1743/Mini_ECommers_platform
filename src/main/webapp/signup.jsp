@@ -35,9 +35,10 @@
 
             if (Boolean.TRUE.equals(msg)) {
         %>
-        <script>
-            alert("Username is already taken!");
-        </script>
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            Username is already taken
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
         <%
                 hs.setAttribute("taken", false);
             }

@@ -29,8 +29,20 @@
     <div class="login-img-header d-flex align-items-center justify-content-center">
         <h1 class="text-white display-4">Sign In</h1>
     </div>
-
     <div class="card-body p-4 p-md-5">
+    <%
+        String msg = (String) session.getAttribute("unothorize");
+        if (msg!=null) {
+    %>
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <%=msg%>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+
+    <%
+            session.removeAttribute("unothorize");
+        }
+    %>
         <form action="login" method="post" class="needs-validation" novalidate>
 
             <div class="mb-4 row align-items-center">
