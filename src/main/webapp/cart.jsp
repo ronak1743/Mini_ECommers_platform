@@ -73,7 +73,9 @@
                 <div class="card-body">
                     <h5 class="card-title">Cart Summary</h5>
                     <p class="card-text">Total Items: <b><%= list.size() %></b></p>
-                    <button class="btn btn-primary w-100">Proceed to Checkout</button>
+                    <form action="add-all-to-order" method="get">
+                    <button type="submit" class="btn btn-primary w-100">Proceed to Checkout</button>
+                    </form>
                 </div>
             </div>
         </div>
