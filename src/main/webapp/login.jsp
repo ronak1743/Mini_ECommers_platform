@@ -1,156 +1,91 @@
 <html>
 <head>
-    <title>Let's order</title>
-     <%@ include file="includes/header.jsp" %>
+    <title>PrimeBasket</title>
+    <%@ include file="includes/header.jsp" %>
+
     <style>
         body {
-            margin: 0;
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            padding: 15px;
             background: #d4d4d491;
-        }
-
-        .login {
-            position: relative;
-            background-color: #ffffff;
-            max-width: 700px;
-            width: 100%;
-            min-height: 550px;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            min-height: 100vh;
             display: flex;
-            flex-direction: column;
-        }
-
-        .loginImg {
-            width: 100%;
-            height:200px;
-            background-color: #000000;
-            display: flex;
-            align-items: center;
             justify-content: center;
+            align-items: center;
+            padding: 15px;
+        }
+
+        .login-img-header {
+            height: 200px;
             background:
                     linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
                     url('https://images.pexels.com/photos/4195409/pexels-photo-4195409.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1') no-repeat center center;
-                background-size: cover;
-        }
-
-        .loginImg > h1 {
-            font-size: 3rem;
-            color: #ffffff;
-            margin: 0px;
-        }
-
-
-        .lables{
-            display:flex;
-            align-items:center;
-            justify-content:center;
-            width:100%;
-        }
-        .lables>h3{
-            display:inline-block;
-            margin:30px;
-            margin-left:40px;
-            font-size:17px;
-            color:gray;
-        }
-
-        .lables > input {
-            padding: 10px 5px;
-            margin-left: 10px;
-            width: 70%;
-
-            background: transparent;
-            border: none;
-            border-bottom: 2px solid #000;
-            outline: none;
-            font-size: 16px;
-            transition: border-color 0.3s;
-        }
-
-
-
-        .lables > input:focus {
-            border-bottom-color: #57b846;
-        }
-
-        form>button{
-            background:#57b846;
-            padding: 5px 30px;
-            border:0px;
-           border-radius: 30px;
-               width: auto;
-               position: absolute;
-               bottom: 15%;
-               left: 44%;
-               color:white;
-               font-size:20px;
-               text-style:bold;
-
-        }
-        .check{
-            position:absolute;
-            left:26%;
-            top:370px;
-            color:gray;
-            cursor: pointer;
-        }
-        .check>label{
-            cursor: pointer;
-        }
-        .already{
-            position:absolute;
-            left:65%;
-            color:gray;
-            cursor: pointer;
-            top:370px;
-            text-decoration:none;
-        }
-        .already>a{
-            color:gray;
-            text-decoration:none;
+            background-size: cover;
         }
     </style>
 </head>
-<body style="margin-top:-15px">
+<body>
 
-    <div class="login">
+<div class="card login shadow-lg" style="max-width: 700px; width: 100%;">
 
-        <div class="loginImg">
-            <h1>Sign In</h1>
-        </div>
-
-        <div class="loginForm">
-            <form action="login" Method="post">
-                <div class="lables">
-                    <h3>Username</h3>
-                    <input type="text" name="name" class="lineinp" placeholder="Enter username"/>
-                </div>
-                <div class="lables">
-                    <h3>Password</h3>
-                    <input type="password" name="pass" class="lineinp" placeholder="Enter Password"/>
-                </div>
-
-                <div class="check">
-                    <input type="checkbox" id="rememberme" name="rememberme"/>
-                    <label for="rememberme">Remember me</label>
-                </div>
-                <div class="already">
-                    <a href="http://localhost:9090/Mini_E-commers_Platform/signup.jsp">Create new account</a>
-                </div>
-
-                <button type="submit"><b>LOGIN</b></button>
-            </form>
-        </div>
+    <div class="login-img-header d-flex align-items-center justify-content-center">
+        <h1 class="text-white display-4">Sign In</h1>
     </div>
 
-    <%@ include file="includes/footer.jsp" %>
+    <div class="card-body p-4 p-md-5">
+        <form action="login" method="post" class="needs-validation" novalidate>
+
+            <div class="mb-4 row align-items-center">
+                <label for="nameInput" class="col-sm-3 col-form-label text-sm-end text-primary fw-bold">Username</label>
+                <div class="col-sm-9">
+                    <input type="text" id="nameInput" name="name" class="form-control form-control-lg" placeholder="Enter username" required />
+                </div>
+            </div>
+
+            <div class="mb-4 row align-items-center">
+                <label for="passInput" class="col-sm-3 col-form-label text-sm-end text-primary fw-bold">Password</label>
+                <div class="col-sm-9">
+                    <input type="password" id="passInput" name="pass" class="form-control form-control-lg" placeholder="Enter Password" required />
+                </div>
+            </div>
+
+            <div class="row mb-4">
+                <div class="col-md-6">
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="rememberme" name="rememberme"/>
+                        <label class="form-check-label text-muted" for="rememberme">Remember me</label>
+                    </div>
+                </div>
+                <div class="col-md-6 text-md-end mt-2 mt-md-0">
+                    <a href="http://localhost:9090/Mini_E-commers_Platform/signup.jsp" class="text-primary text-decoration-none fw-semibold">Create new account</a>
+                </div>
+            </div>
+
+            <div class="d-grid gap-2 mt-5">
+                <button type="submit" class="btn btn-primary btn-lg shadow-sm">
+                    LOGIN
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<%@ include file="includes/footer.jsp" %>
+
+<script>
+    (function () {
+        'use strict'
+        var forms = document.querySelectorAll('.needs-validation')
+        Array.prototype.slice.call(forms)
+            .forEach(function (form) {
+                form.addEventListener('submit', function (event) {
+                    if (!form.checkValidity()) {
+                        event.preventDefault()
+                        event.stopPropagation()
+                    }
+                    form.classList.add('was-validated')
+                }, false)
+            })
+    })()
+</script>
 
 </body>
 </html>

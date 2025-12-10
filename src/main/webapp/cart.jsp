@@ -9,48 +9,77 @@
     ArrayList<Carditem> list = (ArrayList<Carditem>) request.getAttribute("cartlist");
 %>
 
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>Let's order </title>
+    <title>PrimeBasket</title>
     <%@ include file="includes/header.jsp" %>
-    <link rel="stylesheet" href="ordercart.css">
-
-    <style>
-        #name{
-            width: 30%;
-        }
-        #quant{
-            width: 30%;
-        }
-        #del{
-            width: 39%;
-        }
-        form{
-            width: 100%;
-        }
-        #del_btn{
-            margin-right: 3%;
-        }
-    </style>
 </head>
 <body>
 <%@ include file="includes/navbar.jsp" %>
-<div id="box">
-    <%
-        for (Carditem o : list) {
-    %>
-    <div class="product" id="cartlist">
-        <div class="prod cart" id="name"><%= o.getItemname() %></div>
-        <div class="prod cart" id="quant"><%= o.getQuantity() %></div>
-        <div class="prod cart" id="del">
-            <form method="post" class="cart">
-                <input type="hidden" name="id" value="<%=o.getOid()%>">
-                <button id="del_btn" type="submit" formaction="deletecart">Delete</button>
-                <button type="submit" formaction="addtoorder">Order</button>
-            </form>
+
+<div class="container mt-5 pt-4">
+    <h1 class="mb-4" style="color: #0d6efd;">Your Shopping Cart</h1>
+
+    <% if (list == null || list.isEmpty()) { %>
+    <div class="alert alert-info" role="alert">
+        Your cart is currently empty.
+        <a href="<%=request.getContextPath()%>/" class="alert-link">Continue shopping</a>.
+    </div>
+    <% } else { %>
+    <div class="table-responsive">
+        <table class="table table-hover table-striped shadow-sm">
+            <thead class="table-dark">
+            <tr>
+                <th scope="col">Item Name</th>
+                <th scope="col" class="text-center">Quantity</th>
+                <th scope="col" class="text-right">Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            <% for (Carditem o : list) { %>
+            <tr>
+                <td class="align-middle">
+                    <strong><%= o.getItemname() %></strong>
+                </td>
+
+                <td class="align-middle text-center">
+                    <span class="badge bg-secondary"><%= o.getQuantity() %></span>
+                </td>
+
+                <td class="align-middle text-right">
+                    <form method="post" class="d-flex justify-content-end">
+                        <input type="hidden" name="id" value="<%=o.getOid()%>">
+
+                        <button type="submit" formaction="deletecart" class="btn btn-sm btn-outline-danger me-2">
+                            Delete
+                        </button>
+
+                        <button type="submit" formaction="addtoorder" class="btn btn-sm btn-success">
+                            Order Now
+                        </button>
+                    </form>
+                </td>
+            </tr>
+            <% } %>
+
+            </tbody>
+        </table>
+    </div>
+
+    <div class="row justify-content-end mt-4">
+        <div class="col-md-4">
+            <div class="card shadow">
+                <div class="card-body">
+                    <h5 class="card-title">Cart Summary</h5>
+                    <p class="card-text">Total Items: <b><%= list.size() %></b></p>
+                    <button class="btn btn-primary w-100">Proceed to Checkout</button>
+                </div>
+            </div>
         </div>
     </div>
     <% } %>
+
 </div>
 
 <%@ include file="includes/footer.jsp" %>

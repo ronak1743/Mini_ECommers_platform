@@ -38,28 +38,46 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
-  <build>
-    <finalName>Mini_E-commers_Platform</finalName>
-      <plugins>
-          <!-- Maven Compiler Plugin -->
-          <plugin>
-              <artifactId>maven-compiler-plugin</artifactId>
-              <version>3.8.1</version>
-              <configuration>
-                  <source>${maven.compiler.source}</source>
-                  <target>${maven.compiler.target}</target>
-              </configuration>
-          </plugin>
+    <build>
+        <finalName>Mini_E-commers_Platform</finalName>
 
-          <!-- Maven WAR Plugin -->
-          <plugin>
-              <groupId>org.apache.maven.plugins</groupId>
-              <artifactId>maven-war-plugin</artifactId>
-              <version>3.3.2</version>
-              <configuration>
-                  <failOnMissingWebXml>false</failOnMissingWebXml>
-              </configuration>
-          </plugin>
-      </plugins>
-  </build>
+        <!-- Include .env file inside WAR -->
+        <resources>
+            <resource>
+                <!-- Project root directory -->
+                <directory>${project.basedir}</directory>
+                <includes>
+                    <include>.env</include>
+                </includes>
+            </resource>
+
+            <resource>
+                <!-- Standard resources folder -->
+                <directory>src/main/resources</directory>
+            </resource>
+        </resources>
+
+        <plugins>
+            <!-- Maven Compiler Plugin -->
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.1</version>
+                <configuration>
+                    <source>${maven.compiler.source}</source>
+                    <target>${maven.compiler.target}</target>
+                </configuration>
+            </plugin>
+
+            <!-- Maven WAR Plugin -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>3.3.2</version>
+                <configuration>
+                    <failOnMissingWebXml>false</failOnMissingWebXml>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
 </project>

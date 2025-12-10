@@ -19,9 +19,6 @@ public class ShowCart extends HttpServlet {
         String user=(String) req.getSession().getAttribute("user");
         ArrayList<Carditem>list=connecter.showCart(user);
         req.setAttribute("cartlist",list);
-        for(Carditem c:list){
-            System.out.println(c.getItemid()+" "+c.getQuantity()+" "+c.getUser());
-        }
         req.getRequestDispatcher("cart.jsp").forward(req, resp);
     }
 }

@@ -16,9 +16,6 @@ public class ShowOrders extends HttpServlet {
         String user=(String) req.getSession().getAttribute("user");
         ArrayList<Order>list=c.getOrders(user);
         req.setAttribute("orders",list);
-        for(Order o:list){
-            System.out.println(o.getUser()+" "+o.getItemname()+" "+o.getPrice()+" "+o.getQuantity()+" "+o.getAmount());
-        }
         req.getRequestDispatcher("order.jsp").forward(req, resp);
     }
 }

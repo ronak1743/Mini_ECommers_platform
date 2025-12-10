@@ -24,7 +24,6 @@ public class Connecter {
             ps.setString(1,Username);
             ps.setString(2,pass);
             ps.execute();
-            System.out.println("Created user");
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -62,20 +61,17 @@ public class Connecter {
             if(rs.next()){
                 String dbpass=rs.getString("password");
                 if(dbpass.equals(pass)){
-                    System.out.println("Login ok");
 
                     c.close();
                     return true;
                 }
                 else {
-                    System.out.println("pass wrong");
 
                     c.close();
                     return false;
                 }
             }
             else{
-                System.out.println("No user");
 
                 c.close();
                 return  false;
@@ -110,7 +106,7 @@ public class Connecter {
     }
 
     public void addItem(int itemid, int count, String username) {
-        String sql = "INSERT INTO Orders (username, itemid, quantity) VALUES (?, ?, ?);";
+        String sql = "INSERT INTO orders (username, itemid, quantity) VALUES (?, ?, ?);";
         try {
             Connection c = DriverManager.getConnection(url, this.user, this.pass);
             PreparedStatement ps = c.prepareStatement(sql);
@@ -129,8 +125,8 @@ public class Connecter {
 
     public ArrayList<Order> getOrders(String user){
         ArrayList<Order> list = new ArrayList<>();
-        String sql = "SELECT * FROM Orders WHERE username = ?;";
-        String sql2 = "SELECT * FROM Items WHERE id = ?;";
+        String sql = "SELECT * FROM orders WHERE username = ?;";
+        String sql2 = "SELECT * FROM items WHERE id = ?;";
 
         try (Connection c = DriverManager.getConnection(url, this.user, this.pass);
              PreparedStatement psItem = c.prepareStatement(sql2);
@@ -252,7 +248,7 @@ public class Connecter {
 
     public void CartToOrder(int idx,String username) {
         String sql="select * from cart where id="+idx+";";
-        String sql2 = "INSERT INTO Orders (username, itemid, quantity) VALUES (?, ?, ?);";
+        String sql2 = "INSERT INTO orders (username, itemid, quantity) VALUES (?, ?, ?);";
         try {
             Connection c=DriverManager.getConnection(url,user,pass);
             Statement s=c.createStatement();
